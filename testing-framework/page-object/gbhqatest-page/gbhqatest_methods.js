@@ -12,18 +12,6 @@ class google_methods extends BasePage {
         await WaitHelper.waitForPageToLoad();
     }
 
-    async clickOnAddNote() {
-        Logger.subStep('Clicking on Add Note Button');
-        await WaitHelper.waitElementDisplayed(elements.addNoteOpt);
-        await this.click(elements.addNoteOpt);
-    }
-
-    async clickOnLoggOut() {
-        Logger.subStep('Clicking on logg out Button');
-        await WaitHelper.waitElementDisplayed(elements.loggoutOpt);
-        await this.click(elements.loggoutOpt);
-    }
-
 }
 
 module.exports = new google_methods();

@@ -12,6 +12,11 @@ class google_methods extends BasePage {
         return varEmail;
     }
 
+    async verifyTextInEmailField(text) {
+        Logger.subVerification(`${text} should be contained in Email field`);
+        await ExpectationHelper.verifyElementContainsValue(elements.emailTextBox, text);
+    }
+
     async clickOnNextButtonEmail() {
         Logger.subStep('Clicking on "Next" button');
         await Waits.waitElementDisplayed(elements.nextButtonEmail);
@@ -24,21 +29,10 @@ class google_methods extends BasePage {
         await ExpectationHelper.verifyElementDisplayed(elements.passwordTextBox);
     }
 
-    async clickOnNextButtonPassword() {
-        Logger.subStep('Clicking on "Next" button');
-        await Waits.waitElementDisplayed(elements.nextButtonPassword);
-        await this.click(elements.nextButtonPassword);
-    }
-
     async typePassword(varPassword) {
         Logger.subStep(`Insert ${varPassword} in "Name" field`);
         await this.sendText(elements.passwordTextBox, varPassword);
         return varPassword;
-    }
-
-    async verifyTextInEmailField(text) {
-        Logger.subVerification(`${text} should be contained in Email field`);
-        await ExpectationHelper.verifyElementContainsValue(elements.emailTextBox, text);
     }
 
     async verifyTextInPasswordField(text) {
@@ -46,6 +40,12 @@ class google_methods extends BasePage {
         Logger.subVerification(`${text} should be contained in Name field`);
         const passwordElement = await this.getElementValue(elements.passwordTextBox);
         await ExpectationHelper.verifyStringAreEquals(text, passwordElement);
+    }
+
+    async clickOnNextButtonPassword() {
+        Logger.subStep('Clicking on "Next" button');
+        await Waits.waitElementDisplayed(elements.nextButtonPassword);
+        await this.click(elements.nextButtonPassword);
     }
 
 }

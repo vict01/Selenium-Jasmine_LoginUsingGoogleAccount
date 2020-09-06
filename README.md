@@ -1,5 +1,4 @@
-# Feedback Sending to Zero Bank - Automated Testing
-## This is the test automation framework based on Javascript, NodeJS, Jasmine and Selenium-Webdriver used to create tests easily for feedback sending validation.
+# This is the test automation framework based on Javascript, NodeJS, Jasmine and Selenium-Webdriver used to create tests easily to log into a specific web page using a google account.
 
 This framework is made up of the following tools:
 ```
@@ -15,43 +14,42 @@ The relevant framework files are included in the "testing-framework" folder. The
 
 ### In each folder corresponding to each page or view there are:
 * A class of constants: which mainly includes the names, selectors and test data corresponding to that page.
-* A class of POs (Page Objects) or Elements: that includes the webEments of that page.
-* A class of helpers or methods: that includes the specific methods of that page.
+* A class of Elements: that includes the webEments of that page.
+* A class of methods: that includes the specific methods of that page.
 
 ### Within testing-framework/components:
-* Base page helper: Includes methods that are common to all classes (pages). All the helper classes, of all the pages of the application extend from this.
+* Base-page.methods: Includes methods that are common to all classes (pages). All the helper classes, of all the pages of the application extend from this.
 
-* Expectations helper: This class includes the main verifications in a generic way, using this class the specific verifications of each page are created.
+* expectation.methods: This class includes the main verifications in a generic way, using this class the specific verifications of each page are created.
 
-* HTML helper: Includes HTML tags and attribute names.
+* html.methods: Includes HTML tags and attribute names.
 
-* Logger helper: Includes the logger.
+* logger.methods: Includes the logger.
 
-* Page helper: It contains specific methods that manipulate the page or the browser itself.
+* page.methods: It contains specific methods that manipulate the page or the browser itself.
 
 * test-suites Includes the tests to be executed.
 
-* Wait helper: Includes methods where expected.
+* wait.methods: Includes methods where expected.
 
 ### Within testing-framework/page-object/common_page:
 * Includes common methods, elements and properties for all pages.
 
-### Within testing-framework/page-object/feedback_page:
-* Includes methods, elements and properties of the page to be tested.
+### Within testing-framework/page-object/gbhqatest-page:
+* Includes methods, elements and properties of the page to be tested after successful log in.
+
+### Within testing-framework/page-object/google-page:
+* Includes methods, elements and properties of the page to test the login process.
 
 ### Within testing-framework/page-object/home_page:
 * Includes methods, elements and properties of the home page.
 
 ### Within testing-framework/tests:
-* Includes the names of the different test suites to be executed.
-* happyPath.spec.js and negativeTests.spec.js
-
+* Includes the names of the test to be executed.
 
 ## Test Scope and explanation:
 ```
-* happyPath.spec.js => Test in which all mandatory fields are filled out and the form is sent successfully. During this process each step is validated.
-
-* negativeTests.spec.js => Test in which we try to send feedback without indicating any message. During this process each step is validated.
+* loginTest.spec.js => Test in which we log into the webpage successfully. During this process each step is validated.
 ```
 
 ## Requirements Installation:
