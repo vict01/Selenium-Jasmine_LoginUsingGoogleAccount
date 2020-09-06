@@ -1,6 +1,6 @@
 # This is the test automation framework based on Javascript, NodeJS, Jasmine and Selenium-Webdriver used to create tests easily to log into a specific web page using a google account.
 
-This framework is made up of the following tools:
+## This framework is made up of the following tools:
 ```
 1. Javascript: The programing language to build the test logic.
 2. NodeJS: The Runtime environment that allows packaging and manage the dependencies.
