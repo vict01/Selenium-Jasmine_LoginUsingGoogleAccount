@@ -14,16 +14,16 @@ describe(suites.suiteNames.logginTest, () => {
         await commonMethod.goToUrl();
     });
 
-    it('Test to be defined', async () => {
+    it('Log into the web application', async () => {
         Logger.testCaseId('001');
 
         Logger.stepNumber(1);
         Logger.step('Click on "Sign In With Google" option');
-        await homePageMethod.clickOnSignInWithGoogle();       
+        await homePageMethod.clickOnSignInWithGoogle();
         Logger.verification('Verifying we are being taken to google page');
         await WaitHelper.wait(7000);
         await googleMethod.verifyUrl(GoogleData.googleActUrl);
- 
+
         Logger.stepNumber(2);
         Logger.step('Typing E-mail');
         const email = await googleMethod.typeEmail(GoogleData.dataEmail);
@@ -32,7 +32,9 @@ describe(suites.suiteNames.logginTest, () => {
 
         Logger.stepNumber(3);
         Logger.step('Click on "Next" button');
-        await googleMethod.clickOnNextButton();
+        await googleMethod.clickOnNextButtonEmail();
+        Logger.verification('The field password should be displayed');
+        await googleMethod.verifyPasswordFieldIsDisplayed();
 
         Logger.stepNumber(4);
         Logger.step('Typing Password');
@@ -42,8 +44,8 @@ describe(suites.suiteNames.logginTest, () => {
 
         Logger.stepNumber(5);
         Logger.step('Click on "Next" button');
-        await googleMethod.clickOnNextButton();
-        Logger.verification('Verifying we are logged in'); 
+        await googleMethod.clickOnNextButtonPassword();
+        Logger.verification('Verifying we are logged in');
         await gbhMethod.verifyGbhqatestPageIsPresent();
 
     });

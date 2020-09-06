@@ -3,7 +3,7 @@ class HtmlHelper {
         return {
             a: 'a',
             h1: 'h1',
-            firebaseBpp: 'firebase-app',
+            firebaseApp: 'firebase-app',
             input: 'input',
             span: 'span',
             div: 'div',

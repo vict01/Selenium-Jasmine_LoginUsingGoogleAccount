@@ -3,14 +3,14 @@ class feedback_constants {
     get attributes() {
         return {
             id: {
-                emailTxt: 'identifierId'
-
-            },
-            css: {
-                nextBnt: '.VfPpkd-LgbsSe-OWXEXe-k8QpJ > .VfPpkd-RLmnJb'
+                emailTxt: 'identifierId',
+                nextBntPassword: 'passwordNext'
             },
             name: {
                 passwordTxt: 'password'
+            },
+            css: {
+                nextBntEmail: '.VfPpkd-LgbsSe-OWXEXe-k8QpJ > .VfPpkd-RLmnJb'
             }
         }
     }

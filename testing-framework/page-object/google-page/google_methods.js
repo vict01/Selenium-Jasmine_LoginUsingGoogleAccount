@@ -1,6 +1,7 @@
 const { elements } = require('./google_elements');
 const BasePage = require('../../components/base-page.methods');
 const Logger = require('../../components/logger.methods');
+const Waits = require('../../components/wait.methods');
 const ExpectationHelper = require('../../components/expectation.methods');
 
 class google_methods extends BasePage {
@@ -11,9 +12,22 @@ class google_methods extends BasePage {
         return varEmail;
     }
 
-    async clickOnNextButton() {
+    async clickOnNextButtonEmail() {
         Logger.subStep('Clicking on "Next" button');
-        await this.click(elements.nextButton);
+        await Waits.waitElementDisplayed(elements.nextButtonEmail);
+        await this.click(elements.nextButtonEmail);
+    }
+
+    async verifyPasswordFieldIsDisplayed() {
+        Logger.subVerification('Password field should be displayed');
+        await Waits.waitElementDisplayed(elements.passwordTextBox);
+        await ExpectationHelper.verifyElementDisplayed(elements.passwordTextBox);
+    }
+
+    async clickOnNextButtonPassword() {
+        Logger.subStep('Clicking on "Next" button');
+        await Waits.waitElementDisplayed(elements.nextButtonPassword);
+        await this.click(elements.nextButtonPassword);
     }
 
     async typePassword(varPassword) {
@@ -28,8 +42,10 @@ class google_methods extends BasePage {
     }
 
     async verifyTextInPasswordField(text) {
+        await Waits.waitElementDisplayed(elements.passwordTextBox);
         Logger.subVerification(`${text} should be contained in Name field`);
-        await ExpectationHelper.verifyElementContainsValue(elements.passwordTextBox, text);
+        const passwordElement = await this.getElementValue(elements.passwordTextBox);
+        await ExpectationHelper.verifyStringAreEquals(text, passwordElement);
     }
 
 }

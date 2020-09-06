@@ -3,14 +3,17 @@ class feedback_constants {
     get attributes() {
         return {
             id: {
-                loggoutLnk: 'icon'
-
+                loggoutLnk: 'ink', 
+                addOpt: 'icon'
             },
             css: {
-                nextBnt: ''
+                addOpt: 'note-app' //All elements say note-app
             },
             name: {
-                passwordTxt: '',
+                passwordTxt: ''
+            },
+            xpath: {
+                loggoutLnk: '//*[@id="ink"]'
             }
         }
     }
