@@ -18,7 +18,7 @@ class feedback_constants {
     get testData() {
         return {
             dataEmail: 'testuserjust4test@gmail.com',
-            dataPassword: 'Abcd1234*',
+            dataPassword: '',
             googleActUrl: 'https://accounts.google.com/'
         }
     }
